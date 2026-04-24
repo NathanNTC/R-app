@@ -17,17 +17,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        // ❌ REMOVE ISSO se não for usar recuperação de senha
-        // pois depende de email
-        /*
-        Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('login')->primary(); // se quiser adaptar
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
-        });
-        */
-
-        // ✅ sessões (ok manter)
+   
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignId('user_id')->nullable()->index();
@@ -41,7 +31,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('sessions');
-        // Schema::dropIfExists('password_reset_tokens'); // removido
+
         Schema::dropIfExists('users');
     }
 };
