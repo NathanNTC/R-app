@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Receita;
 use Illuminate\Support\Facades\Mail;
 
-
 class ReceitaController extends Controller
 {
     public function index(Request $request)

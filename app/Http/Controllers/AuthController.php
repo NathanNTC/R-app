@@ -14,11 +14,12 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        if (Auth::attempt([
+        if (
+            Auth::attempt([
             'login' => $request->login,
             'password' => $request->senha
-        ])) {
-
+            ])
+        ) {
             $request->session()->regenerate();
 
             return redirect('/receitas');
