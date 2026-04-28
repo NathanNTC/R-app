@@ -247,7 +247,7 @@ class ReceitaTest extends TestCase
             $m->to('teste@teste.com')->subject('teste');
         });
 
-        Mail::assertNothingSent(); // raw não usa fake perfeito
+        Mail::assertNothingSent(); 
     }
 
     // 19

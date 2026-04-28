@@ -22,14 +22,12 @@ Route::middleware('auth')->group(function () {
     Route::put('/receitas/{id}', [ReceitaController::class, 'update']);
     Route::delete('/receitas/{id}', [ReceitaController::class, 'destroy']);
 
+    Route::get('/', [AuthController::class, 'loginForm'])->name('login');
+    Route::get('/login', [AuthController::class, 'loginForm']);
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::get('/logout', [AuthController::class, 'logout']);
 
 
-    Route::get('/teste-email', function () {
-    Mail::raw('Teste Mailtrap funcionando', function ($msg) {
-        $msg->to('teste@teste.com')
-            ->subject('Teste Laravel');
-    });
 
-    return 'Email enviado';
-});
+
 });
